@@ -1,0 +1,91 @@
+\documentclass[a4paper]{article}
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{yhmath}
+\usepackage{pstricks-add}
+\usepackage{framed,mdframed}
+\usepackage{graphicx,color} 
+\usepackage{mathrsfs,xcolor} 
+\usepackage[all]{xy}
+\usepackage{fancybox} 
+\usepackage{xeCJK}
+\newtheorem{theo}{定理}
+\newtheorem*{exer}{题目}
+\newenvironment{theorem}
+{\bigskip\begin{mdframed}\begin{theo}}
+    {\end{theo}\end{mdframed}\bigskip}
+\newenvironment{exercise}
+{\bigskip\begin{mdframed}\begin{exer}}
+    {\end{exer}\end{mdframed}\bigskip}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\setCJKmainfont[BoldFont=FZHei-B01S]{FZFangSong-Z02S}
+\renewcommand{\today}{\number\year 年 \number\month 月 \number\day 日}
+\begin{document}
+\title{\huge{\bf{一道IMO不等式预选题的新证明}}} \author{\small{叶卢
+    庆\footnote{叶卢庆(1992---),男,杭州师范大学理学院数学与应用数学专业
+      本科在读,E-mail:yeluqingmathematics@gmail.com}}}
+\maketitle
+\begin{exercise}[第31届IMO预选题,泰国提供]
+  已知 $a,b,c,d\in \mathbf{R}^{+}$,且 $ab+bc+cd+da=1$,求证
+\begin{equation}\label{eq:1}
+\frac{a^3}{b+c+d}+\frac{b^3}{a+c+d}+\frac{c^3}{a+b+d}+\frac{d^3}{a+b+c}\geq \frac{1}{3}.
+\end{equation}
+\end{exercise}
+\begin{proof}[\textbf{证明}]
+$$
+ab+bc+cd+da=1 \iff (a+c)(b+d)=1.
+$$
+不妨先让 $b+d$ 固定成任意一个正实数,即让 $b+d=p$,其中 $p\in \mathbf{R}^{+}$ 是一个常数.则
+$a+c$ 也固定,$a+c=q=\frac{1}{p}$.则
+\begin{align*}
+  \frac{a^3}{b+c+d}+\frac{c^3}{a+b+d}&=\frac{a^3}{p+c}+\frac{c^3}{p+a}\\&=\frac{(a^4+c^{4})+p(a^3+c^3)}{p^2+1+ac}.
+\end{align*}
+由于
+$$
+ac\leq \frac{(a+c)^2}{4},
+$$
+$$
+a^3+c^3=(a+c)^3-3ac(a+c)\geq (a+c)^3-\frac{3(a+c)^3}{4},
+$$
+$$
+a^4+c^4=(a+c)(a^3+c^3)-ac(a+c)^2-2a^{2}c^2\geq
+(a+c)\left[(a+c)^3-\frac{3(a+c)^3}{4}\right]- \frac{(a+c)^4}{4}-2 \left[\frac{(a+c)^2}{4}\right]^{2}.
+$$
+上面的三个不等式的等号成立的条件都是 $a=c$.因此我们有
+$$
+  \frac{a^3}{b+c+d}+\frac{c^3}{a+b+d}=\frac{(a^4+c^{4})+p(a^3+c^3)}{p^2+1+ac}
+$$
+在 $a=c=\frac{q}{2}$ 的时候达到最小值,最小值为
+$$
+\frac{q^4}{4+2q^{2}}.
+$$
+同理,
+$$
+\frac{b^3}{a+c+d}+\frac{d^3}{a+b+c}
+$$
+在 $b=d=\frac{p}{2}$ 的时候达到最小值.最小值为
+$$
+\frac{p^4}{4+2p^{2}}.
+$$
+为了证明不等式 \eqref{eq:1},我们只用证明
+\begin{equation}\label{eq:2}
+\frac{q^{4}}{4+2q^{2}}+\frac{p^4}{4+2p^2}\geq \frac{1}{3}.
+\end{equation}
+其中 $pq=1$.不等式 \eqref{eq:2} 也就是证明
+\begin{align*}
+  \frac{q^{4}}{4+2q^{2}}+\frac{p^4}{4+2p^2}&=\frac{q^4(4+2p^2)+p^4(4+2q^2)}{(4+2p^2)(4+2q^2)}\\&=\frac{2(p^4+q^4)+(q^2+p^2)}{10+4(p^2+q^2)}\\&=\frac{2(p^2+q^2)^2+(p^2+q^2)-4}{10+4(p^2+q^2)}\geq \frac{1}{3}.
+\end{align*}
+令 $p^2+q^2=t$,也就是证明
+$$
+6t^2-t-22\geq 0,
+$$
+也就是证明
+$$
+(t-2)(6t+11)\geq 0,
+$$
+也就是证明 $t\geq 2$.这是显然的,因为 $t=p^2+q^2\geq 2pq=2$.综上所述,不
+等式 \eqref{eq:1} 得证.
+\end{proof}
+\end{document}
